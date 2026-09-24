@@ -18,6 +18,11 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Install FFmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
       - name: Render vertical Short
         run: bash scripts/render_thor_short.sh
 
