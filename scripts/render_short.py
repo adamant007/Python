@@ -16,7 +16,10 @@ with JOB.open("r", encoding="utf-8") as f:
     job = json.load(f)
 
 slug = job["slug"]
-voice_url = job["voice_url"]
+voice_url = job.get("voice_url")
+voice_urls = job.get("voice_urls") or ([voice_url] if voice_url else [])
+if not voice_urls:
+    raise ValueError("video-job.json must include voice_url or voice_urls")
 headline = job["headline"]
 footer = job.get("footer", "STORY IN 20 SECONDS")
 bg = job.get("background", "0x0c1424")
@@ -27,7 +30,21 @@ TMP.mkdir(exist_ok=True)
 VIDEOS.mkdir(exist_ok=True)
 
 voice = TMP / f"{slug}-voice.mp3"
-subprocess.run(["curl", "-L", "--fail", "--retry", "3", voice_url, "-o", str(voice)], check=True)
+parts = []
+for i, url in enumerate(voice_urls):
+    part = TMP / f"{slug}-voice-{i}.mp3"
+    subprocess.run(["curl", "-L", "--fail", "--retry", "3", url, "-o", str(part)], check=True)
+    parts.append(part)
+
+if len(parts) == 1:
+    subprocess.run(["cp", str(parts[0]), str(voice)], check=True)
+else:
+    concat_file = TMP / f"{slug}-concat.txt"
+    concat_file.write_text("\n".join(f"file '{p.as_posix()}'" for p in parts) + "\n", encoding="utf-8")
+    subprocess.run([
+        "ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(concat_file),
+        "-c:a", "libmp3lame", "-b:a", "192k", str(voice)
+    ], check=True)
 
 headline_file = TMP / f"{slug}-headline.txt"
 footer_file = TMP / f"{slug}-footer.txt"
