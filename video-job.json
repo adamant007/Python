@@ -1,0 +1,40 @@
+{
+  "slug": "thor-bride-short-generic",
+  "voice_url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/f458a192-51d5-4c15-bfbe-41fe0b1ab773.mp3",
+  "headline": "THOR... AS A BRIDE?!",
+  "footer": "MYTH IN 20 SECONDS",
+  "background": "0x0c1424",
+  "accent": "0xf1c75b",
+  "captions": [
+    {
+      "start": 0,
+      "end": 4.4,
+      "text": "He dressed as a bride to steal back Mjolnir.",
+      "font_size": 58
+    },
+    {
+      "start": 4.4,
+      "end": 9,
+      "text": "A giant demanded Freyja — so Thor wore the veil.",
+      "font_size": 50
+    },
+    {
+      "start": 9,
+      "end": 14.2,
+      "text": "At the wedding, his appetite nearly ruined everything.",
+      "font_size": 47
+    },
+    {
+      "start": 14.2,
+      "end": 17.2,
+      "text": "Then the hammer appeared.",
+      "font_size": 60
+    },
+    {
+      "start": 17.2,
+      "end": 30,
+      "text": "Thor grabbed it — and the wedding ended in THUNDER.",
+      "font_size": 47
+    }
+  ]
+}
