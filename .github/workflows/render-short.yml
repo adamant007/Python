@@ -1,0 +1,41 @@
+name: Render Reusable Short
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'video-job.json'
+      - 'scripts/render_short.py'
+      - '.github/workflows/render-short.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install FFmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Render configured Short
+        run: python3 scripts/render_short.py
+
+      - name: Commit rendered video
+        run: |
+          SLUG=$(python3 -c "import json; print(json.load(open('video-job.json'))['slug'])")
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "videos/$SLUG.mp4"
+          if git diff --cached --quiet; then
+            echo "No video change to commit."
+            exit 0
+          fi
+          git commit -m "Render reusable Short: $SLUG [skip render]"
+          git push
