@@ -1,0 +1,23 @@
+{
+  "brand_id": "7013585",
+  "timezone": "America/Los_Angeles",
+  "publish_time": "18:00",
+  "cadence": [
+    "TU",
+    "TH",
+    "SA"
+  ],
+  "platform": "youtube",
+  "voice_style": "deep",
+  "target_seconds": 25,
+  "format": "vertical_9x16",
+  "category": "EDUCATION",
+  "made_for_kids": false,
+  "is_ai_generated_content": true,
+  "series_rotation": [
+    "bible",
+    "mythology"
+  ],
+  "bible_next": "Noah",
+  "notes": "YouTube only. Do not publish to TikTok or Instagram. Use the reusable GitHub FFmpeg renderer and Metricool only as the YouTube scheduler/publisher."
+}
