@@ -18,7 +18,7 @@
     "mythology"
   ],
   "bible_next": "Noah",
-  "notes": "YouTube only. Main videos are minute-plus: mythology about 60–65 seconds; Bible about 70–80 seconds. Do not publish to TikTok or Instagram. Use the reusable GitHub FFmpeg renderer and Buffer as the YouTube scheduler/publisher once connected.",
+  "notes": "YouTube only. Main videos are minute-plus: mythology about 60–65 seconds; Bible about 70–80 seconds. Do not publish to TikTok or Instagram. Render in GitHub and publish directly with the YouTube Data API once Google OAuth secrets are configured.",
   "target_seconds_by_series": {
     "mythology": 65,
     "bible": 75
