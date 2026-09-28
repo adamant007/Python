@@ -9,7 +9,6 @@
   ],
   "platform": "youtube",
   "voice_style": "deep",
-  "target_seconds": 25,
   "format": "vertical_9x16",
   "category": "EDUCATION",
   "made_for_kids": false,
@@ -19,5 +18,9 @@
     "mythology"
   ],
   "bible_next": "Noah",
-  "notes": "YouTube only. Do not publish to TikTok or Instagram. Use the reusable GitHub FFmpeg renderer and Metricool only as the YouTube scheduler/publisher."
+  "notes": "YouTube only. Main videos are minute-plus: mythology about 60–65 seconds; Bible about 70–80 seconds. Do not publish to TikTok or Instagram. Use the reusable GitHub FFmpeg renderer and Buffer as the YouTube scheduler/publisher once connected.",
+  "target_seconds_by_series": {
+    "mythology": 65,
+    "bible": 75
+  }
 }
