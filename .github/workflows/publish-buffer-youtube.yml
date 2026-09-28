@@ -1,10 +1,6 @@
 name: Publish Short to YouTube via Buffer
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'videos/*.mp4'
   workflow_dispatch:
 
 permissions:
