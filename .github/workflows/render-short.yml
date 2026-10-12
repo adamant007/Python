@@ -1,12 +1,7 @@
 name: Render Reusable Short
 
+# Paused automated triggers to conserve GitHub Actions minutes.
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'video-job.json'
-      - 'scripts/render_short.py'
-      - '.github/workflows/render-short.yml'
   workflow_dispatch:
 
 permissions:

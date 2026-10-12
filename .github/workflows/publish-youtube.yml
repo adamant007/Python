@@ -1,12 +1,7 @@
 name: Publish Short Directly to YouTube
 
+# Paused automated triggers to conserve GitHub Actions minutes.
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'videos/*.mp4'
-      - 'scripts/publish_youtube.py'
-      - '.github/workflows/publish-youtube.yml'
   workflow_dispatch:
 
 permissions:

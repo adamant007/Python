@@ -1,11 +1,7 @@
 name: Render Thor Mythology Short
 
+# Paused automated triggers to conserve GitHub Actions minutes.
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'scripts/render_thor_short.sh'
-      - '.github/workflows/render-thor-short.yml'
   workflow_dispatch:
 
 permissions:
